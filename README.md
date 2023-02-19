@@ -3,12 +3,9 @@
 -- CREATING FORESTATION VIRTUAL TABLE
 
 
-DROP VIEW IF EXISTS forestation; CREATE VIEW forestation AS
-(SELECT f.country_code, f.country_name,
-f.year,
-f.forest_area_sqkm,
-l.total_area_sq_mi,
-r.region,
+DROP VIEW IF EXISTS forestation; 
+CREATE VIEW forestation AS
+(SELECT f.country_code, f.country_name, f.year, f.forest_area_sqkm, l.total_area_sq_mi, r.region,
 r.income_group,
 l.total_area_sq_mi * 2.59 total_area_sqkm, ROUND(((f.forest_area_sqkm/(l.total_area_sq_mi*2.59))*100)::numeric,2)
 percentage_forest_area
